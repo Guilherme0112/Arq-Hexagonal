@@ -26,7 +26,9 @@ public class UsuarioServiceImpl implements UsuarioUseCases {
         return usuarioRepository.findById(id);
     }
 
-    public void removerUsuario(Long id){
+    public void removerUsuario(Long id) throws Exception {
+        Usuario user = usuarioRepository.findById(id);
+        if(user == null) throw new Exception("Usuario com o id "+ id +" não encontrado");
         usuarioRepository.deleteById(id);
     }
 }
