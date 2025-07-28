@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
 public class UsuarioRepositoryImpl  implements UsuarioRepository {
@@ -26,7 +25,7 @@ public class UsuarioRepositoryImpl  implements UsuarioRepository {
     }
 
     @Override
-    public Usuario findById(UUID id){
+    public Usuario findById(Long id){
         Optional<JpaUsuarioEntity> jpaUsuarioEntity = this.jpaUsuarioRepository.findById(id);
         return jpaUsuarioEntity.map(jpaUsuario ->
             new Usuario(jpaUsuario.getId(),
@@ -49,7 +48,7 @@ public class UsuarioRepositoryImpl  implements UsuarioRepository {
     }
 
     @Override
-    public void deleteById(UUID id){
+    public void deleteById(Long id){
         this.jpaUsuarioRepository.deleteById(id);
     }
 }
