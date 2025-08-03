@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 
 @Getter
@@ -25,12 +27,14 @@ public class JpaUsuarioEntity {
     private String nome;
     private String email;
     private String senha;
+    private LocalDateTime dataCadastro;
 
     public JpaUsuarioEntity(Usuario usuario) {
         this.id = usuario.getId();
         this.nome = usuario.getNome();
         this.email = usuario.getEmail();
         this.senha = usuario.getSenha();
+        this.dataCadastro = usuario.getDataCadastro();
     }
 
 

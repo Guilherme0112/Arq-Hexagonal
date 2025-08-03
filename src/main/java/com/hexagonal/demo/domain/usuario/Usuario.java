@@ -1,17 +1,22 @@
 package com.hexagonal.demo.domain.usuario;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Usuario {
     private Long id;
     private String nome;
     private String email;
     private String senha;
+    private LocalDateTime dataCadastro;
 
     public Usuario() {}
-    public Usuario(Long id, String nome, String email, String senha) {
+    public Usuario(Long id, String nome, String email, String senha, LocalDateTime dataCadastro) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.dataCadastro = dataCadastro;
     }
 
     public Long getId() {
@@ -40,5 +45,12 @@ public class Usuario {
     }
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public LocalDateTime getDataCadastro() {
+        return dataCadastro;
+    }
+    public void setDataCadastro(LocalDateTime dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 }

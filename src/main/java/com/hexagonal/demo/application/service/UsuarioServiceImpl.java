@@ -23,12 +23,12 @@ public class UsuarioServiceImpl implements UsuarioUseCases {
     }
 
     public Usuario buscarUsuario(Long id){
-        return usuarioRepository.findById(id);
+        return usuarioRepository.findById(id).orElse(null);
     }
 
     public void removerUsuario(Long id) throws Exception {
-        Usuario user = usuarioRepository.findById(id);
-        if(user == null) throw new Exception("Usuario com o id "+ id +" não encontrado");
+        usuarioRepository.findById(id)
+                .orElseThrow(() -> new Exception("Usuario com o id "+ id +" não encontrado"));
         usuarioRepository.deleteById(id);
     }
 }

@@ -1,4 +1,4 @@
-package com.hexagonal.demo.adapters.outbound.repository;
+package com.hexagonal.demo.adapters.outbound.repository.usuario;
 
 import com.hexagonal.demo.adapters.outbound.entity.JpaUsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
