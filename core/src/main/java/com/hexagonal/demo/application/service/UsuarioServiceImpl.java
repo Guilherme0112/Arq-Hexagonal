@@ -6,6 +6,8 @@ import com.hexagonal.demo.domain.usuario.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -15,6 +17,7 @@ public class UsuarioServiceImpl implements UsuarioUseCases {
     private final UsuarioRepository usuarioRepository;
 
     public Usuario salvarUsuario(Usuario usuario){
+        usuario.setDataCadastro(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
         return usuarioRepository.save(usuario);
     }
 

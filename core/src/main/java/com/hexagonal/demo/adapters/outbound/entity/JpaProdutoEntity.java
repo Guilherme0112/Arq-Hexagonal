@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Getter
 @Setter
@@ -33,7 +34,7 @@ public class JpaProdutoEntity {
     @Column(name = "CodigoDeBarras", nullable = false)
     private String codigoDeBarras;
 
-    @Column(name = "DataCadastro", nullable = false)
+    @Column(name = "DataCadastro", nullable = false, updatable = false)
     private LocalDateTime dataCadastro;
 
     public JpaProdutoEntity(Produto produto) {

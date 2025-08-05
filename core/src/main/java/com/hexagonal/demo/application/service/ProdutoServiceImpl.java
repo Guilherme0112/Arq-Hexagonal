@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +20,7 @@ public class ProdutoServiceImpl implements ProdutoUseCases {
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     public Produto salvarProduto(Produto produto) {
+        produto.setDataCadastro(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
         return produtoRepository.save(produto);
     }
 

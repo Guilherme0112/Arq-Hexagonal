@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Getter
 @Setter
@@ -29,7 +30,7 @@ public class JpaUsuarioEntity {
     @Column(name = "Senha", nullable = false)
     private String senha;
 
-    @Column(name = "DataCadastro", nullable = false)
+    @Column(name = "DataCadastro", nullable = false, updatable = false)
     private LocalDateTime dataCadastro;
 
     public JpaUsuarioEntity(Usuario usuario) {
